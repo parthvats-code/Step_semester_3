@@ -64,3 +64,4 @@ public class CompanyEmployeeRecord {
         System.out.println("Total records: " + CompanyEmployeeRecord.totalRecords);
     }
 }
+

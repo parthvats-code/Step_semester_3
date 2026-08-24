@@ -52,3 +52,4 @@ public class ParkingSlot {
         safeAllot(slots2, "TN09AB1234");
     }
 }
+

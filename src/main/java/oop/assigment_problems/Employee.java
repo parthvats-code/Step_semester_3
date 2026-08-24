@@ -66,3 +66,4 @@ class InternEmployee extends Employee {
         return stipendCap;
     }
 }
+

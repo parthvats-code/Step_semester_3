@@ -53,3 +53,4 @@ public class BookIssue {
                 BookIssue.totalFineCollected(issues));
     }
 }
+

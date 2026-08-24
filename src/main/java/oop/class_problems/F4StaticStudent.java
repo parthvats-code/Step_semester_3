@@ -45,3 +45,4 @@ public class F4StaticStudent {
         SrmStudent.printTotalAdmissions();
     }
 }
+
