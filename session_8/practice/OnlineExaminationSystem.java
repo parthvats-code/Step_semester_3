@@ -7,7 +7,7 @@ class ChoiceQuestion implements ExamQuestion {
     ChoiceQuestion(String a) {
         answer=a;
     }
-public boolean correct(String a) {
+    public boolean correct(String a) {
         return answer.equalsIgnoreCase(a);
     }
 }
@@ -18,11 +18,11 @@ class ExamAttempt {
     ExamAttempt(String t) {
         title=t;
     }
-void answer(int q, String a) {
+    void answer(int q, String a) {
         if(submitted)throw new IllegalStateException("Submitted");
         answers.put(q, a);
     }
-int submit(ExamQuestion[] q) {
+    int submit(ExamQuestion[] q) {
         if(submitted)throw new IllegalStateException("Already submitted");
         submitted=true;
         int n=0;
