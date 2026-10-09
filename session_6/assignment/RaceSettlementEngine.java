@@ -12,7 +12,7 @@ static class RaceSystem  {
         private int nextId= 1001;
         private final Map< String, Entry> entries= new LinkedHashMap< > ();
         String issue(double fee) {
-            String id= "RACE-"+ nextId+ + ;
+            String id= "RACE-"+ nextId++ ;
             entries.put(id, new Entry(id, fee));
             return id;
         }
