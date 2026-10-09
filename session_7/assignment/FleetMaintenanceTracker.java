@@ -1,23 +1,23 @@
-interface Serviceable  {
+interface Serviceable {
     String performMaintenance();
 }
-interface Insurable  {
+interface Insurable {
     String insuranceDetails();
 }
-class Excavator implements Serviceable, Insurable  {
+class Excavator implements Serviceable, Insurable {
     public String performMaintenance() {
         return "Excavator hydraulic and engine service completed";
     }
-public String insuranceDetails() {
+    public String insuranceDetails() {
         return "Excavator insurance active";
     }
 }
-class Crane implements Serviceable  {
+class Crane implements Serviceable {
     public String performMaintenance() {
         return "Crane cable and load-system inspection completed";
     }
 }
-public class FleetMaintenanceTracker  {
+public class FleetMaintenanceTracker {
     public static void main(String[] args) {
         Serviceable[] fleet= {
             new Excavator(), new Crane()
