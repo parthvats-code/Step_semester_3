@@ -1,34 +1,34 @@
 import java.util.*;
-interface Borrowable  {
+interface Borrowable {
     boolean borrow(String user);
     void returnItem();
 }
-class LibraryItem implements Borrowable  {
+class LibraryItem implements Borrowable {
     String title;
     boolean borrowed;
     LibraryItem(String t) {
         title=t;
     }
-public boolean borrow(String u) {
+    public boolean borrow(String u) {
         if(borrowed)return false;
         borrowed=true;
         System.out.println(u+" borrowed "+title);
         return true;
     }
-public void returnItem() {
+    public void returnItem() {
         borrowed=false;
     }
 }
-class ReferenceBook extends LibraryItem  {
+class ReferenceBook extends LibraryItem {
     ReferenceBook(String t) {
         super(t);
     }
-public boolean borrow(String u) {
+    public boolean borrow(String u) {
         System.out.println("Reference books cannot be borrowed: "+title);
         return false;
     }
 }
-public class CommunityLibraryCheckoutSystem  {
+public class CommunityLibraryCheckoutSystem {
     public static void main(String[] args) {
         Borrowable[] items= {
             new LibraryItem("Clean Code"), new ReferenceBook("Encyclopedia")
