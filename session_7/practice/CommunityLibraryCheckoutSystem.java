@@ -1,5 +1,41 @@
 import java.util.*;
-interface Borrowable {boolean borrow(String user);void returnItem();}
-class LibraryItem implements Borrowable {String title;boolean borrowed;LibraryItem(String t){title=t;}public boolean borrow(String u){if(borrowed)return false;borrowed=true;System.out.println(u+" borrowed "+title);return true;}public void returnItem(){borrowed=false;}}
-class ReferenceBook extends LibraryItem {ReferenceBook(String t){super(t);}public boolean borrow(String u){System.out.println("Reference books cannot be borrowed: "+title);return false;}}
-public class CommunityLibraryCheckoutSystem {public static void main(String[] args){Borrowable[] items={new LibraryItem("Clean Code"),new ReferenceBook("Encyclopedia")};System.out.println(items[0].borrow("Jane"));System.out.println(items[0].borrow("Sam"));items[0].returnItem();System.out.println(items[1].borrow("Jane"));}}
+interface Borrowable  {
+    boolean borrow(String user);
+    void returnItem();
+}
+class LibraryItem implements Borrowable  {
+    String title;
+    boolean borrowed;
+    LibraryItem(String t) {
+        title=t;
+    }
+public boolean borrow(String u) {
+        if(borrowed)return false;
+        borrowed=true;
+        System.out.println(u+" borrowed "+title);
+        return true;
+    }
+public void returnItem() {
+        borrowed=false;
+    }
+}
+class ReferenceBook extends LibraryItem  {
+    ReferenceBook(String t) {
+        super(t);
+    }
+public boolean borrow(String u) {
+        System.out.println("Reference books cannot be borrowed: "+title);
+        return false;
+    }
+}
+public class CommunityLibraryCheckoutSystem  {
+    public static void main(String[] args) {
+        Borrowable[] items= {
+            new LibraryItem("Clean Code"), new ReferenceBook("Encyclopedia")
+        };
+        System.out.println(items[0].borrow("Jane"));
+        System.out.println(items[0].borrow("Sam"));
+        items[0].returnItem();
+        System.out.println(items[1].borrow("Jane"));
+    }
+}
