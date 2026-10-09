@@ -1,8 +1,8 @@
 import java.util.*;
-public class PairSumInSortedArray  {
-    static int[] pairSumSorted(int[] nums, int target)  {
+public class PairSumInSortedArray {
+    static int[] pairSumSorted(int[] nums, int target) {
         int left=0, right=nums.length-1;
-        while(left<right)  {
+        while(left<right) {
             long sum=(long)nums[left]+nums[right];
             if(sum==target) return new int[] {
                 nums[left], nums[right]
@@ -10,9 +10,9 @@ public class PairSumInSortedArray  {
             if(sum<target) left++;
             else right--;
         }
-return null;
+        return null;
     }
-public static void main(String[] args)  {
+    public static void main(String[] args) {
         System.out.println(Arrays.toString(pairSumSorted(new int[] {
             -4, -1, 0, 3, 5, 9
         }, 4)));
