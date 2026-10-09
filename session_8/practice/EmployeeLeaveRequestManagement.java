@@ -7,12 +7,12 @@ class LeaveRequest {
         start=s;
         end=e;
     }
-void review(String next) {
+    void review(String next) {
         if(!status.equals("Pending")) {
             System.out.println("Cannot change status: "+status+" request cannot revert to Pending.");
             return;
         }
-if(next.equals("Approved")||next.equals("Rejected"))status=next;
+        if(next.equals("Approved")||next.equals("Rejected"))status=next;
         System.out.println("Leave request for "+employee+" "+status.toLowerCase()+". Status: "+status+".");
     }
 }
