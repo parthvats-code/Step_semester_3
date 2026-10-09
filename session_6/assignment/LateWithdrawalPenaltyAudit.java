@@ -1,1 +1,32 @@
-import java.util.*;class RacePolicy {protected double penaltyRate=.10;void applyLateFee(RunnerRecord r,double fee){r.penalty+=fee*penaltyRate;}}class RunnerRecord {String bib;double penalty;RunnerRecord(String b){bib=b;}}class LateRunnerPolicy extends RacePolicy {@Override void applyLateFee(RunnerRecord r,double fee){super.applyLateFee(r,fee);r.penalty+=fee*.10;}}public class LateWithdrawalPenaltyAudit {public static void main(String[]x){RacePolicy normal=new RacePolicy();RacePolicy late=new LateRunnerPolicy();RunnerRecord a=new RunnerRecord("BIB1001"),b=new RunnerRecord("BIB1002");normal.applyLateFee(a,100);late.applyLateFee(b,100);System.out.println(a.bib+" penalty: "+a.penalty);System.out.println(b.bib+" penalty: "+b.penalty);System.out.println("Audit: standard and late penalties recorded.");}}
+import java.util.*;
+class RacePolicy  {
+    protected double penaltyRate= .10;
+    void applyLateFee(RunnerRecord r, double fee) {
+        r.penalty+= fee*penaltyRate;
+    }
+}
+class RunnerRecord  {
+    String bib;
+    double penalty;
+    RunnerRecord(String b) {
+        bib= b;
+    }
+}
+class LateRunnerPolicy extends RacePolicy  {
+    @Override void applyLateFee(RunnerRecord r, double fee) {
+        super.applyLateFee(r, fee);
+        r.penalty+= fee*.10;
+    }
+}
+public class LateWithdrawalPenaltyAudit  {
+    public static void main(String[]x) {
+        RacePolicy normal= new RacePolicy();
+        RacePolicy late= new LateRunnerPolicy();
+        RunnerRecord a= new RunnerRecord("BIB1001"), b= new RunnerRecord("BIB1002");
+        normal.applyLateFee(a, 100);
+        late.applyLateFee(b, 100);
+        System.out.println(a.bib+ " penalty: "+ a.penalty);
+        System.out.println(b.bib+ " penalty: "+ b.penalty);
+        System.out.println("Audit: standard and late penalties recorded.");
+    }
+}
