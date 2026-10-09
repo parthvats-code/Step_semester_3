@@ -1,4 +1,61 @@
-abstract class Shape {private static int nextId=1;private final String shapeId;Shape(){shapeId="S"+nextId++;}abstract double calculateArea();String getShapeId(){return shapeId;}void scale(double f){}void scale(double x,double y){scale(x);scale(y);}static void printArea(Shape s){System.out.println(s.calculateArea());}}
-class CircleShape extends Shape {double radius;CircleShape(double r){radius=r;}double calculateArea(){return Math.PI*radius*radius;}void scale(double f){radius*=f;}void scale(double x,double y){radius*=Math.sqrt(x*y);}}
-class SquareShape extends Shape {double side;SquareShape(double s){side=s;}double calculateArea(){return side*side;}void scale(double f){side*=f;}void scale(double x,double y){side*=Math.sqrt(x*y);}}
-public class BasicDrawingCanvas {public static void main(String[] args){CircleShape c=new CircleShape(5);SquareShape s=new SquareShape(4);System.out.printf("%.2f%n",c.calculateArea());System.out.println(s.calculateArea());s.scale(2);System.out.println(s.calculateArea());Shape.printArea(c);}}
+abstract class Shape  {
+    private static int nextId= 1;
+    private final String shapeId;
+    Shape() {
+        shapeId= "S"+ nextId+ + ;
+    }
+abstract double calculateArea();
+    String getShapeId() {
+        return shapeId;
+    }
+void scale(double f) {
+    }
+void scale(double x, double y) {
+        scale(x);
+        scale(y);
+    }
+static void printArea(Shape s) {
+        System.out.println(s.calculateArea());
+    }
+}
+class CircleShape extends Shape  {
+    double radius;
+    CircleShape(double r) {
+        radius= r;
+    }
+double calculateArea() {
+        return Math.PI*radius*radius;
+    }
+void scale(double f) {
+        radius*= f;
+    }
+void scale(double x, double y) {
+        radius*= Math.sqrt(x*y);
+    }
+}
+class SquareShape extends Shape  {
+    double side;
+    SquareShape(double s) {
+        side= s;
+    }
+double calculateArea() {
+        return side*side;
+    }
+void scale(double f) {
+        side*= f;
+    }
+void scale(double x, double y) {
+        side*= Math.sqrt(x*y);
+    }
+}
+public class BasicDrawingCanvas  {
+    public static void main(String[] args) {
+        CircleShape c= new CircleShape(5);
+        SquareShape s= new SquareShape(4);
+        System.out.printf("%.2f%n", c.calculateArea());
+        System.out.println(s.calculateArea());
+        s.scale(2);
+        System.out.println(s.calculateArea());
+        Shape.printArea(c);
+    }
+}
