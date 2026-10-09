@@ -1,54 +1,54 @@
-abstract class Shape  {
+abstract class Shape {
     private static int nextId= 1;
     private final String shapeId;
     Shape() {
-        shapeId= "S"+ nextId++ ;
+        shapeId= "S"+ nextId++;
     }
-abstract double calculateArea();
+    abstract double calculateArea();
     String getShapeId() {
         return shapeId;
     }
-void scale(double f) {
+    void scale(double f) {
     }
-void scale(double x, double y) {
+    void scale(double x, double y) {
         scale(x);
         scale(y);
     }
-static void printArea(Shape s) {
+    static void printArea(Shape s) {
         System.out.println(s.calculateArea());
     }
 }
-class CircleShape extends Shape  {
+class CircleShape extends Shape {
     double radius;
     CircleShape(double r) {
         radius= r;
     }
-double calculateArea() {
+    double calculateArea() {
         return Math.PI*radius*radius;
     }
-void scale(double f) {
+    void scale(double f) {
         radius*= f;
     }
-void scale(double x, double y) {
+    void scale(double x, double y) {
         radius*= Math.sqrt(x*y);
     }
 }
-class SquareShape extends Shape  {
+class SquareShape extends Shape {
     double side;
     SquareShape(double s) {
         side= s;
     }
-double calculateArea() {
+    double calculateArea() {
         return side*side;
     }
-void scale(double f) {
+    void scale(double f) {
         side*= f;
     }
-void scale(double x, double y) {
+    void scale(double x, double y) {
         side*= Math.sqrt(x*y);
     }
 }
-public class BasicDrawingCanvas  {
+public class BasicDrawingCanvas {
     public static void main(String[] args) {
         CircleShape c= new CircleShape(5);
         SquareShape s= new SquareShape(4);
