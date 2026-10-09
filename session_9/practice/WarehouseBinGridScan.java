@@ -1,5 +1,5 @@
-public class WarehouseBinGridScan  {
-    static class Summary  {
+public class WarehouseBinGridScan {
+    static class Summary {
         long total;
         int row, col, max;
         Summary(long t, int r, int c, int m) {
@@ -8,14 +8,14 @@ public class WarehouseBinGridScan  {
             col=c;
             max=m;
         }
-public String toString() {
+        public String toString() {
             return "total="+total+", maxCoordinate=("+row+", "+col+"), max="+max;
         }
     }
-static Summary warehouseSummary(int[][] grid)  {
+    static Summary warehouseSummary(int[][] grid) {
         long total=0;
         int max=-1, mr=0, mc=0;
-        for(int r=0;r<grid.length;r++) for(int c=0;c<grid[r].length;c++)  {
+        for(int r=0;r<grid.length;r++) for(int c=0;c<grid[r].length;c++) {
             int v=grid[r][c];
             total+=v;
             if(v>max) {
@@ -24,15 +24,15 @@ static Summary warehouseSummary(int[][] grid)  {
                 mc=c;
             }
         }
-return new Summary(total, mr, mc, max);
+        return new Summary(total, mr, mc, max);
     }
-public static void main(String[] args)  {
+    public static void main(String[] args) {
         System.out.println(warehouseSummary(new int[][] {
-             {
+            {
                 4, 9, 2
-            },  {
+            }, {
                 7, 1, 6
-            },  {
+            }, {
                 3, 12, 5
             }
         }));
