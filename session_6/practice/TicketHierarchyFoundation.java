@@ -54,9 +54,9 @@ public class TicketHierarchyFoundation  {
         int ok= 0, bad= 0;
         for(String id:ids)try {
             new EventTicket(id, p);
-            ok+ + ;
+            ok++ ;
         } catch(IllegalArgumentException e) {
-            bad+ + ;
+            bad++ ;
         }
 return "Registered: "+ ok+ " | Rejected: "+ bad;
     }
