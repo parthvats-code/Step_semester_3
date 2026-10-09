@@ -15,7 +15,7 @@ static class Fest {
             double finalPrice= amount;
             if("FEST10".equals(code))finalPrice*= .9;
             else if("STUDENT20".equals(code))finalPrice*= .8;
-            String id= "TKT-"+ next+ + ;
+            String id= "TKT-"+ next++ ;
             tickets.put(id, new Ticket(id, finalPrice));
             return id;
         }
