@@ -8,7 +8,7 @@ class HotelRoom {
         name=n;
         rate=r;
     }
-boolean available(LocalDate s, LocalDate e) {
+    boolean available(LocalDate s, LocalDate e) {
         for(Booking b:bookings)if(!b.cancelled&&s.isBefore(b.end)&&e.isAfter(b.start))return false;
         return true;
     }
@@ -33,7 +33,7 @@ public class HotelBookingCancellationSystem {
             r.bookings.add(b);
             System.out.printf("%s booked from %s to %s. Total price: $%.2f%n", r.name, s, e, r.rate*4);
         }
-LocalDate s2=LocalDate.of(2024, 12, 3), e2=LocalDate.of(2024, 12, 7);
+        LocalDate s2=LocalDate.of(2024, 12, 3), e2=LocalDate.of(2024, 12, 7);
         System.out.println(r.available(s2, e2)?"Available":"Booking failed: "+r.name+" is not available for "+s2+" to "+e2);
         if(b!=null) {
             b.cancelled=true;
