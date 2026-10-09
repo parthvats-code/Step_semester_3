@@ -1,24 +1,24 @@
 import java.util.*;
-class RacePolicy  {
+class RacePolicy {
     protected double penaltyRate= .10;
     void applyLateFee(RunnerRecord r, double fee) {
         r.penalty+= fee*penaltyRate;
     }
 }
-class RunnerRecord  {
+class RunnerRecord {
     String bib;
     double penalty;
     RunnerRecord(String b) {
         bib= b;
     }
 }
-class LateRunnerPolicy extends RacePolicy  {
+class LateRunnerPolicy extends RacePolicy {
     @Override void applyLateFee(RunnerRecord r, double fee) {
         super.applyLateFee(r, fee);
         r.penalty+= fee*.10;
     }
 }
-public class LateWithdrawalPenaltyAudit  {
+public class LateWithdrawalPenaltyAudit {
     public static void main(String[]x) {
         RacePolicy normal= new RacePolicy();
         RacePolicy late= new LateRunnerPolicy();
