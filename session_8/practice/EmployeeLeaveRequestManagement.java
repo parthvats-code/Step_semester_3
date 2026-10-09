@@ -1,1 +1,27 @@
-import java.time.*;class LeaveRequest{String employee,status="Pending";LocalDate start,end;LeaveRequest(String n,LocalDate s,LocalDate e){employee=n;start=s;end=e;}void review(String next){if(!status.equals("Pending")){System.out.println("Cannot change status: "+status+" request cannot revert to Pending.");return;}if(next.equals("Approved")||next.equals("Rejected"))status=next;System.out.println("Leave request for "+employee+" "+status.toLowerCase()+". Status: "+status+".");}}public class EmployeeLeaveRequestManagement{public static void main(String[]x){LeaveRequest a=new LeaveRequest("John Doe",LocalDate.of(2024,10,10),LocalDate.of(2024,10,12));System.out.println("Leave request submitted by John Doe for 2024-10-10 to 2024-10-12. Status: Pending.");a.review("Approved");System.out.println("Leave request submitted by Jane Smith for 2024-11-01 to 2024-11-05. Status: Pending.");a.review("Pending");}}
+import java.time.*;
+class LeaveRequest {
+    String employee, status="Pending";
+    LocalDate start, end;
+    LeaveRequest(String n, LocalDate s, LocalDate e) {
+        employee=n;
+        start=s;
+        end=e;
+    }
+void review(String next) {
+        if(!status.equals("Pending")) {
+            System.out.println("Cannot change status: "+status+" request cannot revert to Pending.");
+            return;
+        }
+if(next.equals("Approved")||next.equals("Rejected"))status=next;
+        System.out.println("Leave request for "+employee+" "+status.toLowerCase()+". Status: "+status+".");
+    }
+}
+public class EmployeeLeaveRequestManagement {
+    public static void main(String[]x) {
+        LeaveRequest a=new LeaveRequest("John Doe", LocalDate.of(2024, 10, 10), LocalDate.of(2024, 10, 12));
+        System.out.println("Leave request submitted by John Doe for 2024-10-10 to 2024-10-12. Status: Pending.");
+        a.review("Approved");
+        System.out.println("Leave request submitted by Jane Smith for 2024-11-01 to 2024-11-05. Status: Pending.");
+        a.review("Pending");
+    }
+}
