@@ -12,7 +12,7 @@ class WalletPay implements PaymentMethod2 {
     WalletPay(double b) {
         balance=b;
     }
-public boolean pay(double a) {
+    public boolean pay(double a) {
         if(a<=0||a>balance)return false;
         balance-=a;
         return true;
@@ -23,7 +23,7 @@ class FoodOrder {
     void add(String item, int q) {
         if(q>0)items.put(item, items.getOrDefault(item, 0)+q);
     }
-boolean place(double total, PaymentMethod2 p) {
+    boolean place(double total, PaymentMethod2 p) {
         if(items.isEmpty())throw new IllegalStateException("Order must contain at least one item");
         return p.pay(total);
     }
