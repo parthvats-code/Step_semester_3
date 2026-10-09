@@ -1,36 +1,36 @@
 import java.util.*;
-interface ShippingType  {
+interface ShippingType {
     double charge(double kg);
 }
-class StandardShipping implements ShippingType  {
+class StandardShipping implements ShippingType {
     public double charge(double kg) {
         return 40+10*kg;
     }
 }
-class ExpressShipping implements ShippingType  {
+class ExpressShipping implements ShippingType {
     public double charge(double kg) {
         return 80+15*kg;
     }
 }
-class FragileShipping implements ShippingType  {
+class FragileShipping implements ShippingType {
     public double charge(double kg) {
         return 40+10*kg+50;
     }
 }
-interface NotificationChannel  {
+interface NotificationChannel {
     void notify(String parcel, String status);
 }
-class SmsChannel implements NotificationChannel  {
+class SmsChannel implements NotificationChannel {
     public void notify(String p, String s) {
         System.out.println("[SMS] "+p+" is now "+s+".");
     }
 }
-class EmailChannel implements NotificationChannel  {
+class EmailChannel implements NotificationChannel {
     public void notify(String p, String s) {
         System.out.println("[Email] "+p+" is now "+s+".");
     }
 }
-class Parcel  {
+class Parcel {
     String id, status="BOOKED";
     double kg;
     ShippingType type;
@@ -41,7 +41,7 @@ class Parcel  {
         type=t;
         channels=c;
     }
-boolean transition(String next) {
+    boolean transition(String next) {
         String[] states= {
             "BOOKED", "PICKED_UP", "IN_TRANSIT", "OUT_FOR_DELIVERY", "DELIVERED"
         };
@@ -50,16 +50,16 @@ boolean transition(String next) {
             System.out.println("Invalid transition: "+status+" → "+next+" is not allowed.");
             return false;
         }
-status=next;
+        status=next;
         for(NotificationChannel c:channels)c.notify(id, status);
         return true;
     }
-void cancel() {
+    void cancel() {
         if(!status.equals("BOOKED"))System.out.println("Cancellation failed: "+id+" can be cancelled only while BOOKED.");
         else status="CANCELLED";
     }
 }
-public class SwiftShipParcelTracker  {
+public class SwiftShipParcelTracker {
     public static void main(String[] args) {
         Parcel p=new Parcel("P101", 2, new ExpressShipping(), Arrays.asList(new SmsChannel(), new EmailChannel()));
         System.out.println("Parcel P101 booked (Express, 2 kg).");
