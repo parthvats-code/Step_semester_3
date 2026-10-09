@@ -2,7 +2,7 @@ abstract class Shape  {
     private static int nextId= 1;
     private final String shapeId;
     Shape() {
-        shapeId= "S"+ nextId+ + ;
+        shapeId= "S"+ nextId++ ;
     }
 abstract double calculateArea();
     String getShapeId() {
