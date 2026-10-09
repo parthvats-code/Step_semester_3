@@ -1,5 +1,79 @@
-class EventTicket {protected final String attendeeId;protected final double basePrice;protected double paid;EventTicket(String id,double price){if(id==null||id.trim().length()<4)throw new IllegalArgumentException("Invalid attendee ID");if(price<=0)throw new IllegalArgumentException("Invalid price");attendeeId=id;basePrice=price;}void pay(double a){if(a<=0||a>getBalanceDue())throw new IllegalArgumentException();paid+=a;}double getBalanceDue(){return basePrice-paid;}String printTicket(){return "Standard Event Ticket | Balance Due: "+getBalanceDue();}}
-class WorkshopTicket extends EventTicket {String track;WorkshopTicket(String id,double p,String t){super(id,p);track=t;}String printTicket(){return "Workshop Ticket | Track: "+track+" | Balance Due: "+getBalanceDue();}}
-class PremiumWorkshopTicket extends WorkshopTicket {double kitFee;PremiumWorkshopTicket(String id,double p,String t,double k){super(id,p,t);kitFee=k;}String printTicket(){return "Premium Workshop Ticket | Track: "+track+" | Kit Fee: "+kitFee+" | Balance Due: "+getBalanceDue();}}
-class HackathonTicket extends EventTicket {String team;HackathonTicket(String id,double p,String t){super(id,p);team=t;}String printTicket(){return "Hackathon Ticket | Team: "+team+" | Balance Due: "+getBalanceDue();}}
-public class TicketHierarchyFoundation {static String registerBatch(String[] ids,double p){int ok=0,bad=0;for(String id:ids)try{new EventTicket(id,p);ok++;}catch(IllegalArgumentException e){bad++;}return "Registered: "+ok+" | Rejected: "+bad;}static String classifyGeneration(EventTicket t){if(t instanceof PremiumWorkshopTicket)return "Multilevel descendant (3 generations deep)";if(t instanceof HackathonTicket)return "Hierarchical sibling (independent branch)";if(t instanceof WorkshopTicket)return "Single-inheritance descendant";return "Base ticket";}static double getTotalBalanceDue(EventTicket[] ts){double s=0;for(EventTicket t:ts)s+=t.getBalanceDue();return s;}public static void main(String[] x){System.out.println(registerBatch(new String[]{"STU1","ST1","STU2"},500));}}
+class EventTicket  {
+    protected final String attendeeId;
+    protected final double basePrice;
+    protected double paid;
+    EventTicket(String id, double price) {
+        if(id== null||id.trim().length()< 4)throw new IllegalArgumentException("Invalid attendee ID");
+        if(price<= 0)throw new IllegalArgumentException("Invalid price");
+        attendeeId= id;
+        basePrice= price;
+    }
+void pay(double a) {
+        if(a<= 0||a> getBalanceDue())throw new IllegalArgumentException();
+        paid+= a;
+    }
+double getBalanceDue() {
+        return basePrice- paid;
+    }
+String printTicket() {
+        return "Standard Event Ticket | Balance Due: "+ getBalanceDue();
+    }
+}
+class WorkshopTicket extends EventTicket  {
+    String track;
+    WorkshopTicket(String id, double p, String t) {
+        super(id, p);
+        track= t;
+    }
+String printTicket() {
+        return "Workshop Ticket | Track: "+ track+ " | Balance Due: "+ getBalanceDue();
+    }
+}
+class PremiumWorkshopTicket extends WorkshopTicket  {
+    double kitFee;
+    PremiumWorkshopTicket(String id, double p, String t, double k) {
+        super(id, p, t);
+        kitFee= k;
+    }
+String printTicket() {
+        return "Premium Workshop Ticket | Track: "+ track+ " | Kit Fee: "+ kitFee+ " | Balance Due: "+ getBalanceDue();
+    }
+}
+class HackathonTicket extends EventTicket  {
+    String team;
+    HackathonTicket(String id, double p, String t) {
+        super(id, p);
+        team= t;
+    }
+String printTicket() {
+        return "Hackathon Ticket | Team: "+ team+ " | Balance Due: "+ getBalanceDue();
+    }
+}
+public class TicketHierarchyFoundation  {
+    static String registerBatch(String[] ids, double p) {
+        int ok= 0, bad= 0;
+        for(String id:ids)try {
+            new EventTicket(id, p);
+            ok+ + ;
+        } catch(IllegalArgumentException e) {
+            bad+ + ;
+        }
+return "Registered: "+ ok+ " | Rejected: "+ bad;
+    }
+static String classifyGeneration(EventTicket t) {
+        if(t instanceof PremiumWorkshopTicket)return "Multilevel descendant (3 generations deep)";
+        if(t instanceof HackathonTicket)return "Hierarchical sibling (independent branch)";
+        if(t instanceof WorkshopTicket)return "Single-inheritance descendant";
+        return "Base ticket";
+    }
+static double getTotalBalanceDue(EventTicket[] ts) {
+        double s= 0;
+        for(EventTicket t:ts)s+= t.getBalanceDue();
+        return s;
+    }
+public static void main(String[] x) {
+        System.out.println(registerBatch(new String[] {
+            "STU1", "ST1", "STU2"
+        }, 500));
+    }
+}
