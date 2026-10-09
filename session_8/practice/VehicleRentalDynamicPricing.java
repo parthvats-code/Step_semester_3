@@ -4,13 +4,13 @@ abstract class Vehicle {
     Vehicle(String n) {
         name=n;
     }
-abstract double rate();
+    abstract double rate();
     double rent(int days) {
         if(!available||days<1)throw new IllegalStateException("Unavailable");
         available=false;
         return rate()*days;
     }
-void giveBack() {
+    void giveBack() {
         available=true;
     }
 }
@@ -18,7 +18,7 @@ class StandardCar extends Vehicle {
     StandardCar(String n) {
         super(n);
     }
-double rate() {
+    double rate() {
         return 50;
     }
 }
@@ -26,7 +26,7 @@ class LuxuryCar extends Vehicle {
     LuxuryCar(String n) {
         super(n);
     }
-double rate() {
+    double rate() {
         return 100;
     }
 }
@@ -34,7 +34,7 @@ class SUV extends Vehicle {
     SUV(String n) {
         super(n);
     }
-double rate() {
+    double rate() {
         return 80;
     }
 }
