@@ -1,5 +1,5 @@
 import java.util.*;
-public class FestSettlementEngine  {
+public class FestSettlementEngine {
     static class Ticket {
         String id;
         double amount;
@@ -8,24 +8,24 @@ public class FestSettlementEngine  {
             amount= a;
         }
     }
-static class Fest {
+    static class Fest {
         int next= 1001;
         Map< String, Ticket> tickets= new LinkedHashMap< > ();
         String issue(double amount, String code) {
             double finalPrice= amount;
             if("FEST10".equals(code))finalPrice*= .9;
             else if("STUDENT20".equals(code))finalPrice*= .8;
-            String id= "TKT-"+ next++ ;
+            String id= "TKT-"+ next++;
             tickets.put(id, new Ticket(id, finalPrice));
             return id;
         }
-double settle() {
+        double settle() {
             double total= 0;
             for(Ticket t:tickets.values())total+= t.amount;
             return total;
         }
     }
-public static void main(String[] args) {
+    public static void main(String[] args) {
         Fest f= new Fest();
         System.out.println(f.issue(500, "FEST10"));
         System.out.println(f.issue(800, "STUDENT20"));
