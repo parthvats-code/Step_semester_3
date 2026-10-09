@@ -66,9 +66,9 @@ public class RaceEntryFoundation  {
         int ok= 0, bad= 0;
         for(String b:bibs)try {
             new RaceEntry(b, fee);
-            ok+ + ;
+            ok++ ;
         } catch(IllegalArgumentException e) {
-            bad+ + ;
+            bad++ ;
         }
 return "Registered: "+ ok+ " | Rejected: "+ bad;
     }
