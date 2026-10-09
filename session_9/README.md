@@ -7,14 +7,13 @@
 - `assignment/ExamScoreBandCounter.java` — lower/upper bound binary search; O(log n).
 - `assignment/SpiralStockAuditRoute.java` — boundary-based spiral traversal; O(rows × columns).
 
-## Practice
+## Practice coding
 - `practice/PairSumInSortedArray.java` — two pointers; O(n).
 - `practice/WarehouseBinGridScan.java` — grid traversal; O(mn).
-- `practice/LibraryCatalogLookup.java` — binary search; O(log n).
-- `practice/LibraryCatalogLookupAlternative.java` — lower-bound binary search; O(log n).
+- `practice/LibraryCatalogLookup.java` and `LibraryCatalogLookupAlternative.java` — binary search; O(log n).
 - `practice/MaximumSumSubarrayFixedK.java` — fixed-size sliding window; O(n).
 
 ## Practice quiz answers
-Q1 **B**, Q2 **C**, Q3 **C**, Q4 **C**, Q5 **C**.
+Q1 **B**, Q2 **C**, Q3 **C**, Q4 **C**, Q5 **C**, Q6 **C**, Q7 **C**, Q8 **A, C, E**, Q9 **B, C, D**, Q10 **C**.
 
-Each Java file is self-contained and includes a small demonstration in `main`. Compile a file with `javac FileName.java` and run it with `java FileName`.
+Compile a file with `javac FileName.java` and run with `java FileName`. Each Java source is intended to be compiled separately.
