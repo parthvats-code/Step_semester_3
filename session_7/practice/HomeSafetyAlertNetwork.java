@@ -1,50 +1,50 @@
-interface Alertable  {
+interface Alertable {
     String sendAlert(String message);
 }
-class SecuritySensor  {
+class SecuritySensor {
     protected String zoneName;
     SecuritySensor(String z) {
         zoneName=z;
     }
-String getZoneName() {
+    String getZoneName() {
         return zoneName;
     }
 }
-class MotionSensor extends SecuritySensor implements Alertable  {
+class MotionSensor extends SecuritySensor implements Alertable {
     MotionSensor(String z) {
         super(z);
     }
-public String sendAlert(String m) {
+    public String sendAlert(String m) {
         return "["+zoneName+"] "+m;
     }
 }
-class DualZoneMotionSensor extends MotionSensor  {
+class DualZoneMotionSensor extends MotionSensor {
     String second;
     DualZoneMotionSensor(String z, String s) {
         super(z);
         second=s;
     }
-public String sendAlert(String m) {
+    public String sendAlert(String m) {
         return super.sendAlert(m)+" [also covering "+second+"]";
     }
 }
-class SmokeDetector implements Alertable  {
+class SmokeDetector implements Alertable {
     String id;
     SmokeDetector(String i) {
         id=i;
     }
-public String sendAlert(String m) {
+    public String sendAlert(String m) {
         return "["+id+"] "+m;
     }
 }
-public class HomeSafetyAlertNetwork  {
+public class HomeSafetyAlertNetwork {
     static void broadcastAll(Alertable[] a, String m) {
         for(Alertable x:a)System.out.println(x.sendAlert(m));
     }
-static String getZoneIfMotionSensor(Alertable a) {
+    static String getZoneIfMotionSensor(Alertable a) {
         return a instanceof MotionSensor?((MotionSensor)a).getZoneName():"Not a motion sensor";
     }
-public static void main(String[] args) {
+    public static void main(String[] args) {
         MotionSensor m=new MotionSensor("Living Room");
         SmokeDetector s=new SmokeDetector("SD-01");
         broadcastAll(new Alertable[] {
